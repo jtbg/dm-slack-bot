@@ -10,7 +10,7 @@ Currently, the bot supports:
 * `/whois list` to list out all the important NPCs they've encountered  
 * `/whois [name]` to search a list of NPCs to display a reminder for who a given NPC is
 
-
+------
 
 ## Initial Setup
 
@@ -42,20 +42,22 @@ Currently, the bot supports:
 	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Bot User OAuth Access Token generated in Step 3.3 above:  
 `sed -i 's/YOUR_SLACK_TOKEN/xof2-464564574-24576736-idgfsdfklue' config.json`
 	2. [TODO: add instructions for Sheets token]
+4. Edit 
 5. Deploy the functions:  
  `gcloud beta functions deploy xp --runtime python37`
  `gcloud beta functions deploy tldr --runtime python37`
  `gcloud beta functions deploy whois --runtime python37`
+6. Make note of the `httpsTrigger` that is returned when you deploy
 
 ## Configuring the Slash Commands
 
 1. Navigate to you the Slash Command setup screen
 	1. Go to your [Slack Apps](https://api.slack.com/apps) 
-	2. Select the app your created in Step 3.3 of **Initial Setup**
+	2. Select the app your created in Step 3 of **Initial Setup**
 	3. On the left sidebar, click `Slash Commands`
 2. Add the command configuration:  
 	1. For **Command**, enter `/xp`, or whatever command you want to summon the bot
-	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with your GCP's region and project ID from Step 1.2 in **Initial Setup**. (or navigate to [IAM & admin](https://console.cloud.google.com/iam-admin/settings/) to find this information)
+	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with the URL from Step 6 of **Deploying the Cloud Functions**
 	3. For **Short Description**, enter `return the current XP` (This tells users that the command summons our bot()
 	4. You can leave **Usage Hint** blank
-	5. Repeat the above for each command you want to support
+	5. Repeat the above for each command you want to supportbove for each command you want to support
