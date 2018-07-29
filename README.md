@@ -1,5 +1,14 @@
 # DM Slack Bot
-_A squire for your D&D Slack Team_. This bot uses Google Cloud Platforms [Cloud Functions](https://cloud.google.com/functions/) to support several 
+_v0.1.0_
+
+**A squire for your D&D Slack Team**  
+ This bot uses Google Cloud Platforms [Cloud Functions](https://cloud.google.com/functions/) to answer players' most frequent questions. For ease of maintenance, these answers are powered by a Google Sheet the DM can keep up-to-date.
+
+Currently, the bot supports:  
+* `/xp` to display current XP, level, and XP needed to level up next  
+* `/tldr [optional date]` to display a summary of the last session (or a summary of any date)  
+* `/whois list` to list out all the important NPCs they've encountered  
+* `/whois [name]` to search a list of NPCs to display a reminder for who a given NPC is
 
 
 
@@ -12,7 +21,7 @@ _A squire for your D&D Slack Team_. This bot uses Google Cloud Platforms [Cloud 
 	4. [Enable the Google Cloud Function and Google Sheets API](https://console.cloud.google.com/flows/enableapi?apiid=cloudfunctions,sheets.googleapis.com)
 2. Set up your local development environment for GCP
 	1. If you haven't installed it before, [install the GCloud SDK](https://cloud.google.com/sdk/gcloud/)
-	2. Update your glocud compoments and install beta components:  
+	2. Update your glocud components and install beta components:  
 	`gcloud components update && gcloud components install beta`
 3. Set up your Slack app
 	1. Create a [new app in your Slack team](https://api.slack.com/apps?new_app=1)
@@ -27,7 +36,7 @@ _A squire for your D&D Slack Team_. This bot uses Google Cloud Platforms [Cloud 
 
 1. Clone this repository into a directory on your local machine:  
 `git clone https://github.com/drunken-economist/dm-slack-bot`
-2. Naviate into the cloned directory:  
+2. Navigate into the cloned directory:  
 `cd dm-slack-bot`
 3. Edit the config.json file in your favorite text editor (or using the commands below)
 	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Bot User OAuth Access Token generated in Step 3.3 above:  
@@ -48,6 +57,6 @@ _A squire for your D&D Slack Team_. This bot uses Google Cloud Platforms [Cloud 
 2. Add the command configuration:  
 	1. For **Command**, enter `/xp`, or whatever command you want to summon the bot
 	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with your GCP's region and project ID from Step 1.2 in **Initial Setup**. (or navigate to [IAM & admin](https://console.cloud.google.com/iam-admin/settings/) to find this information)
-	3. For **Short Description**, enter `return the currnet XP` (This tells users that the command summons our bot()
+	3. For **Short Description**, enter `return the current XP` (This tells users that the command summons our bot()
 	4. You can leave **Usage Hint** blank
 	5. Repeat the above for each command you want to support
