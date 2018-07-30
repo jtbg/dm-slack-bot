@@ -42,7 +42,6 @@ Currently, the bot supports:
 	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Bot User OAuth Access Token generated in Step 3.3 above:  
 `sed -i 's/YOUR_SLACK_TOKEN/xof2-464564574-24576736-idgfsdfklue' config.json`
 	2. [TODO: add instructions for Sheets token]
-4. Edit 
 5. Deploy the functions:  
  `gcloud beta functions deploy xp --runtime python37`
  `gcloud beta functions deploy tldr --runtime python37`
