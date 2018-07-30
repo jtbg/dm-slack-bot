@@ -1,5 +1,5 @@
 # DM Slack Bot
-_v0.1.2_
+_v1.0.0_
 
 **A squire for your D&D Slack Team**  
  This bot uses Google Cloud Platforms [Cloud Functions](https://cloud.google.com/functions/) to answer players' most frequent questions. For ease of maintenance, these answers are powered by a Google Sheet the DM can keep up-to-date.
@@ -28,8 +28,12 @@ Currently, the bot supports:
 	2. On the left sidebar menu, click `Bot Users`, and set up a Username and Display Name for the bot. This will be what is shown when the bot responds to commands
 	3. On the left sidebar menu, click `OAuth & Permissions`, then click `Install App to Workspace`
 	4. Make note of the Access Tokens Generated (you'll be able to return to this page later, don't worry)
-4. Set up the Google Sheets API
-	1. [TODO: add instructions for sheets API]
+4. Set up the Google Sheets CSV
+	1. Make a copy of [the example DM workbook](https://docs.google.com/spreadsheets/d/1jGwyqOEg6RnzruYpHKetSH_d6Ckp5WOTxGJpIpITf8Q/edit?usp=sharing)
+	2. On Sheets, click `File > Publish to the web`
+	3. In the dropdown, select `Log` and `CSV`
+	4. Click `Publish` and copy the URL generated
+	5. Repeat Steps 3&4 for each of the `tldr` and `whois` sheets
 
 
 ## Deploying the Cloud Functions
@@ -37,11 +41,11 @@ Currently, the bot supports:
 1. Clone this repository into a directory on your local machine:  
 `git clone https://github.com/drunken-economist/dm-slack-bot`
 2. Navigate into the cloned directory:  
-`cd dm-slack-bot`
+`cd dm-slack-bot/functions`
 3. Edit the config.json file in your favorite text editor (or using the commands below)
 	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Bot User OAuth Access Token generated in Step 3.3 above:  
 `sed -i 's/YOUR_SLACK_TOKEN/xof2-464564574-24576736-idgfsdfklue' config.json`
-	2. [TODO: add instructions for Sheets token]
+	2. For each of the CSV URLs, replace the example URL with the appropriate URL from Step 4.4 in **Initial Setup**
 4. Deploy the functions:  
  `gcloud beta functions deploy xp --runtime python37`
  `gcloud beta functions deploy tldr --runtime python37`
