@@ -42,11 +42,11 @@ Currently, the bot supports:
 	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Bot User OAuth Access Token generated in Step 3.3 above:  
 `sed -i 's/YOUR_SLACK_TOKEN/xof2-464564574-24576736-idgfsdfklue' config.json`
 	2. [TODO: add instructions for Sheets token]
-5. Deploy the functions:  
+4. Deploy the functions:  
  `gcloud beta functions deploy xp --runtime python37`
  `gcloud beta functions deploy tldr --runtime python37`
  `gcloud beta functions deploy whois --runtime python37`
-6. Make note of the `httpsTrigger` that is returned when you deploy
+5. Make note of the `httpsTrigger` that is returned when you deploy
 
 ## Configuring the Slash Commands
 
@@ -56,7 +56,7 @@ Currently, the bot supports:
 	3. On the left sidebar, click `Slash Commands`
 2. Add the command configuration:  
 	1. For **Command**, enter `/xp`, or whatever command you want to summon the bot
-	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with the URL from Step 6 of **Deploying the Cloud Functions**
+	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with the URL from Step 5 of **Deploying the Cloud Functions**
 	3. For **Short Description**, enter `return the current XP` (This tells users that the command summons our bot()
 	4. You can leave **Usage Hint** blank
 	5. Repeat the above for each command you want to supportbove for each command you want to support
