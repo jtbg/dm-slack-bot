@@ -14,7 +14,7 @@ Currently, the bot supports:
 
 ## Initial Setup
 
-1. Set up your Google Cloud Platform porject
+1. Set up your Google Cloud Platform project
 	1. Go to the [**GCP Resource Manager**](https://console.cloud.google.com/cloud-resource-manager) and create a new project or select an existing one
 	2. Make note of the region and Project ID
 	3. Enable Billing on the project (top-left hamburger menu > `Billing`)
@@ -59,8 +59,8 @@ Currently, the bot supports:
 	2. Select the app your created in Step 3 of **Initial Setup**
 	3. On the left sidebar, click `Slash Commands`
 2. Add the command configuration:  
-	1. For **Command**, enter `/xp`, or whatever command you want to summon the bot
+	1. For **Command**, enter `/xp`, or whatever command you want to summon the bot for this function
 	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with the URL from Step 5 of **Deploying the Cloud Functions**
 	3. For **Short Description**, enter `return the current XP` (This tells users that the command summons our bot()
 	4. You can leave **Usage Hint** blank
-	5. Repeat the above for each command you want to supportbove for each command you want to support
+	5. Repeat the above for each command you want to support
