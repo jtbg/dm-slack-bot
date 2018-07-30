@@ -1,5 +1,5 @@
 # DM Slack Bot
-_v0.1.1_
+_v0.1.2_
 
 **A squire for your D&D Slack Team**  
  This bot uses Google Cloud Platforms [Cloud Functions](https://cloud.google.com/functions/) to answer players' most frequent questions. For ease of maintenance, these answers are powered by a Google Sheet the DM can keep up-to-date.
