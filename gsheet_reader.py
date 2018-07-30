@@ -9,28 +9,35 @@ with open('config.json', 'r') as jsonfile:
 config = json.loads(jsondata)
 
 def read_tldr(session_date=None):
-	url = config['CSV']['tldr_csv']
+	response = {}
+	response['title'] = "TL;DR"
+	url = config['TLDR_CSV']
 	with closing(requests.get(url, stream=True)) as r:
 		reader = csv.reader(codecs.iterdecode(r.iter_lines(), 'utf-8'), delimiter = ',', quotechar='"')
 		for row in reader:
 			if session_date == row[0]:
-				return row
-		row[1] = row[1] + ' \n_[date not found, using latest session]_'
-		return row
+				response['text'] = row[1]
+		response['text'] = row[1]
+		return response
+		
 
 def current_xp():
-	url = config['CSV']['log_csv']
+	response = {}
+	url = config['LOG_CSV']
 	with closing(requests.get(url, stream=True)) as r:
 		reader = csv.reader(codecs.iterdecode(r.iter_lines(), 'utf-8'), delimiter = ',', quotechar='"')
 		for row in reader:
 			xp = row[10]
 			level = row[11]
 			needed = row[12]
-		return [xp, level, needed]
+		response['title'] = 'Current XP'
+		response['text'] = "The party's current XP is {}, putting you at level {}. You need {}xp more to level up".format(xp, level, needed)
+		return response
 
 def whois(npc_name='list'):
+	response = {}
 	npcs = {}
-	url = config['CSV']['whois_csv']
+	url = config['WHOIS_CSV']
 	with closing(requests.get(url, stream=True)) as r:
 		reader = csv.reader(codecs.iterdecode(r.iter_lines(), 'utf-8'), delimiter = ',', quotechar='"')
 		for row in reader:
@@ -38,10 +45,11 @@ def whois(npc_name='list'):
 			description = row[1]
 			npcs[name] = description
 		if npc_name.lower() == 'list':
-			response = 'You can ask about the following NPCs:'
+			response['title'] = 'List of NPCs'
 			for npc_name in list(npcs.keys()):
-				response = response + '\n' + npc_name
+				response['text'] = response['text'] + '\n' + npc_name
 			return response
 		search_match = process.extractOne(npc_name, list(npcs.keys()))
-		response = '*{}*\n_(match score: {})_\n{}'.format(search_match[0], search_match[1], npcs[search_match[0]])
+		response['title'] = search_match[0]
+		response['text'] = npcs[search_match[0]]
 		return response
