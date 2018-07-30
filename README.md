@@ -46,9 +46,9 @@ Currently, the bot supports:
 `sed -i 's/YOUR_SLACK_TOKEN/xof2-464564574-24576736-idgfsdfklue' config.json`
 	2. For each of the CSV URLs, replace the example URL with the appropriate URL from Step 4.4 in **Initial Setup**
 4. Deploy the functions:  
- `gcloud beta functions deploy xp --runtime python37`  
- `gcloud beta functions deploy tldr --runtime python37`  
- `gcloud beta functions deploy whois --runtime python37`
+ `gcloud beta functions deploy xp --runtime python37 --trigger-http`  
+ `gcloud beta functions deploy tldr --runtime python37 --trigger-http`  
+ `gcloud beta functions deploy whois --runtime python37 --trigger-http`
 5. Make note of the `httpsTrigger` that is returned when you deploy
 
 ## Configuring the Slash Commands
