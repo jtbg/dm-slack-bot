@@ -25,9 +25,8 @@ Currently, the bot supports:
 	`gcloud components update && gcloud components install beta`
 3. Set up your Slack app
 	1. Create a [new app in your Slack team](https://api.slack.com/apps?new_app=1)
-	2. On the left sidebar menu, click `Bot Users`, and set up a Username and Display Name for the bot. This will be what is shown when the bot responds to commands
-	3. On the left sidebar menu, click `OAuth & Permissions`, then click `Install App to Workspace`
-	4. Make note of the Access Tokens Generated (you'll be able to return to this page later, don't worry)
+	2. On the left sidebar menu, click `Basic Information`
+	4. Make note of the Verification Token Generated (you'll be able to return to this page later, don't worry)
 4. Set up the Google Sheets CSV
 	1. Make a copy of [the example DM workbook](https://docs.google.com/spreadsheets/d/1jGwyqOEg6RnzruYpHKetSH_d6Ckp5WOTxGJpIpITf8Q/edit?usp=sharing)
 	2. On Sheets, click `File > Publish to the web`
@@ -43,7 +42,7 @@ Currently, the bot supports:
 2. Navigate into the cloned directory:  
 `cd dm-slack-bot/functions`
 3. Edit the config.json file in your favorite text editor (or using the commands below)
-	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Bot User OAuth Access Token generated in Step 3.3 above:  
+	1. Replace `"SLACK_TOKEN": "YOUR_SLACK_TOKEN"` with the Verification Token generated in Step 3.3 above:  
 `sed -i 's/YOUR_SLACK_TOKEN/xof2-464564574-24576736-idgfsdfklue' config.json`
 	2. For each of the CSV URLs, replace the example URL with the appropriate URL from Step 4.4 in **Initial Setup**
 4. Deploy the functions:  
