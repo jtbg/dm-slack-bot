@@ -1,0 +1,6 @@
+{
+    "SLACK_TOKEN": "YOUR_SLACK_TOKEN",
+    "LOG_CSV": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT2TDqurIMf6YOrccwE6xOdQMGoGC-wAi7YsXppklVaCgSGjbFZGka9h0bUhx-t1J74ksQ8CbVC12BG/pub?gid=0&single=true&output=csv",
+    "TLDR_CSV": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT2TDqurIMf6YOrccwE6xOdQMGoGC-wAi7YsXppklVaCgSGjbFZGka9h0bUhx-t1J74ksQ8CbVC12BG/pub?gid=1005353141&single=true&output=csv",
+    "WHOIS_CSV": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT2TDqurIMf6YOrccwE6xOdQMGoGC-wAi7YsXppklVaCgSGjbFZGka9h0bUhx-t1J74ksQ8CbVC12BG/pub?gid=845537&single=true&output=csv"
+}

@@ -1,0 +1,4 @@
+flask==1.0.2
+fuzzywuzzy
+google-api-python-client==1.7.3
+requests
