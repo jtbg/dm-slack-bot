@@ -26,7 +26,7 @@ Currently, the bot supports:
 3. Set up your Slack app
 	1. Create a [new app in your Slack team](https://api.slack.com/apps?new_app=1)
 	2. On the left sidebar menu, click `Basic Information`
-	4. Make note of the Verification Token Generated (you'll be able to return to this page later, don't worry)
+	3. Make note of the Verification Token Generated (you'll be able to return to this page later, don't worry)
 4. Set up the Google Sheets CSV
 	1. Make a copy of [the example DM workbook](https://docs.google.com/spreadsheets/d/1jGwyqOEg6RnzruYpHKetSH_d6Ckp5WOTxGJpIpITf8Q/edit?usp=sharing)
 	2. On Sheets, click `File > Publish to the web`
@@ -60,6 +60,6 @@ Currently, the bot supports:
 2. Add the command configuration:  
 	1. For **Command**, enter `/xp`, or whatever command you want to summon the bot for this function
 	2. For **Request URL**. enter `https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net/xp`, replacing with the URL from Step 5 of **Deploying the Cloud Functions**
-	3. For **Short Description**, enter `return the current XP` (This tells users that the command summons our bot()
-	4. You can leave **Usage Hint** blank
+	3. For **Short Description**, enter `return the current XP` (this tells users what our command does)
+	4. You can leave **Usage Hint** blank, or add more explainer text
 	5. Repeat the above for each command you want to support
